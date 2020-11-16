@@ -43,4 +43,4 @@ Although people who have used this utility also mentioned using it for saving ch
 --- 
 
 # Downloads
-Clone or download from https://github.com/kaniyeri/efficient-screenshot
+Clone or download from (https://github.com/kaniyeri/efficient-screenshot)
