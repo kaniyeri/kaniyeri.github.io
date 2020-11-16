@@ -6,19 +6,18 @@
 # --- Required options --- #
 
 # Name of website
-title: My Website
+title: "Nikhil Kaniyeri"
 
 # Your name to show in the footer
-author: Some Person
+author: Nikhil Kaniyeri
 
 # --- List of links in the navigation bar --- #
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+
+
+  
 
 # --- Logo --- #
 
@@ -39,13 +38,12 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-#  patreon: DeanAttali
+  email: "education.kaniyeri@gmail.com"
+#   facebook: deanattali
+  github: kaniyeri
+#  twitter: daattali
 #  reddit: yourname
-#  linkedin: daattali
+  linkedin: nikhilkaniyeri
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -64,7 +62,7 @@ social-network-links:
 
 # If you want to show a link to an RSS in the footer, add the site description here.
 # If you don't want to show an RSS link, remove the following line.
-rss-description: This website is a virtual proof that I'm awesome
+rss-description: You want updates from me? Cool!
 
 # --- General options --- #
 
@@ -77,7 +75,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "kaniyeri.github.io"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
@@ -228,4 +226,6 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
+
+
 
