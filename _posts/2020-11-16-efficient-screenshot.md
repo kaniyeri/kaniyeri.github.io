@@ -18,6 +18,7 @@ Please make sure you have the current version of Python installed. Please find t
 This version of efficient-screenshot requires packages which are not bundled with python. The extra packages are listed in prerequisites.txt. The packages can be installed automatically by running setup.py(also bundled with your clone of the repository.)
 
 In case any other packages are required for running the file, it will be updated in the prerequisites.txt and can be refreshed by running setup.py again. (setup.py pulls package names from prerequisites.txt)
+
 ---
 # Using the utility
 
@@ -28,6 +29,7 @@ The date and time is used in naming the folder and file. This is by design, it m
 Press LCtrl to take screenshots. A new folder is created with the current date and time and the screenshot is saved in the folder. All subsequent screenshots are named sequentially inside the folder.
 
 To create a new folder, close and relaunch the application. This is useful if you want to split into categories.
+
 ---
 
 # Use cases
@@ -37,6 +39,7 @@ I created multiple folders correlated to courses I have in my first year. I have
 The screenshots get saved into a folder with date and time for future reference.
 
 Although people who have used this utility also mentioned using it for saving chats from desktop chat programs.
+
 --- 
 
 # Downloads
