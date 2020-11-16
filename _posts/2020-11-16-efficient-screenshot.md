@@ -7,7 +7,7 @@ comments: true
 
 This is a extended readme on how to use kaniyeri/efficient-screenshot.
 
-I created efficient-screenshot because there was no good method of taking screenshots and automatically arranging them into folders for easy categorisation. The current method of taking sceenshots involve the snipping tool which opens into an editor and a file explorer to select directory... complete waste of time especially if you want to take multiple screenshots in lectures or chats.
+I created efficient-screenshot because there was no good method of taking screenshots and automatically arranging them into folders for easy categorisation. The current method of taking screenshots involve the snipping tool which opens into an editor and a file explorer to select directory... complete waste of time especially if you want to take multiple screenshots in lectures or chats.
 
 efficient-screenshot was made for this.
 
