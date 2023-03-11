@@ -1,8 +1,8 @@
 # Setup
 title: Dark Poole
 url: https://kaniyeri.github.io/
-paginate: 1
-paginate_path: "/page:num/"
+# paginate: 1
+# paginate_path: "/page:num/"
 baseurl: ""
 permalink: pretty
 
