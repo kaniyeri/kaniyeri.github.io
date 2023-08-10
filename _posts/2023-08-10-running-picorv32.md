@@ -43,13 +43,15 @@ Run `make test` just to make sure you have all the prerequisites installed.
 
 The makefile provides the method in which the files are compiled and arranged. Highlighting the important sections:
 
-```makefile
+```make
 FIRMWARE_OBJS = firmware/start.o firmware/irq.o firmware/print.o firmware/sieve.o firmware/multest.o firmware/stats.o
 
+...
 
 test: testbench.vvp firmware/firmware.hex
 	vvp -N $<
 
+...
 
 firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py
 	python3 firmware/makehex.py $< 16384 > $@
