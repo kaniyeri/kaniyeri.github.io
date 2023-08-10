@@ -2,8 +2,9 @@
 layout: post
 title: Running your own program on the PicoRV32
 ---
-
 [PicoRV32](https://github.com/YosysHQ/picorv32) is an open source core that implements the RISC-V RV32IMC Instruction Set. Here's how to use the core to run your own programs.
+---
+
 
 This is the structure of the repository:
 ```
