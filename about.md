@@ -14,5 +14,5 @@ Contact me : [Email](mailto:kaniyeri@pm.me)
 
 
 
-<italics>Maintaining your own blog is easy<span style="color: red;">^H^H^H^H</span> difficult.</italics>
+<i>Maintaining your own blog is easy<span style="color: red;">^H^H^H^H</span> difficult.</i>
 
