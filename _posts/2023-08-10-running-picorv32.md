@@ -46,12 +46,12 @@ The makefile provides the method in which the files are compiled and arranged. H
 ```make
 FIRMWARE_OBJS = firmware/start.o firmware/irq.o firmware/print.o firmware/sieve.o firmware/multest.o firmware/stats.o
 
-...
+
 
 test: testbench.vvp firmware/firmware.hex
 	vvp -N $<
 
-...
+
 
 firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py
 	python3 firmware/makehex.py $< 16384 > $@
