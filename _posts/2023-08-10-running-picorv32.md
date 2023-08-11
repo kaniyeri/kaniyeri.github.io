@@ -196,6 +196,8 @@ End of assembler dump.
 We see that the instruction loads the location `0x10000000` into a register by using the `lui` instruction. The `sw` instruction reads the lower 4 bytes of your source reg and stores them into the memory location in `a5`. 
 
 
-From the RISC-V ISA [documentation](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) 
+From the RISC-V ISA [documentation:](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) 
 > LUI (load upper immediate) is used to build 32-bit constants and uses the U-type format. LUI places the U-immediate value in the top 20 bits of the destination register rd, filling in the lowest 12 bits with zeros.
->
+
+
+
