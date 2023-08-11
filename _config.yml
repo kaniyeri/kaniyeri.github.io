@@ -33,7 +33,7 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Nikhil 
+  name: Nikhil Kaniyeri
   url: kaniyeri.github.io/about
   email: kaniyeri@pm.me
 
@@ -44,4 +44,7 @@ version: 3.0.0
 nav:
   - title: Blog
     url: /archive
+  - title: About
+    url : /
+  
 
