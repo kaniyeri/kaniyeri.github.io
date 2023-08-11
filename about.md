@@ -13,7 +13,7 @@ Read my <a href="archive.md">blog</a>, or contact me by emailing kaniyeri at pm 
 
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
 
 
