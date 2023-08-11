@@ -9,7 +9,7 @@ title: Running your own programs on the PicoRV32
 
 This is the structure of the repository:
 ```
-x@y:~/Desktop/picorv32-1.0$ tree -L 1
+$ tree -L 1
 .
 ├── dhrystone
 ├── dotfiles
@@ -115,5 +115,87 @@ void print_str(const char *p)
 }
 ```
 
-The source has a defined memory location <span style="color: cyan;">0x10000000</span> as `OUTPORT`
+The source has a defined memory location <span style="color: cyan;">0x10000000</span> as `OUTPORT`. The implemented functions write into the memory location. But writing to a memory location surely isn't enough, there must be something more on the hardware side/simulation framework that writes the data onto the console.
 
+Let us look at the assembly to figure out what happens when the above C functions are called. The RV32I toolchain also includes `gdb` for RISC-V that can be used for this:
+
+```
+$ /opt/riscv32i/bin/riscv32-unknown-elf-gdb firmware/firmware.elf
+GNU gdb (GDB) 8.2.50.20181127-git
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-pc-linux-gnu --target=riscv32-unknown-elf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from firmware/firmware.elf...
+(No debugging symbols found in firmware/firmware.elf)
+
+```
+
+We can use `info functions` to see what we can disassemble:
+
+```r
+(gdb) info functions
+All defined functions:
+
+Non-debugging symbols:
+0x00000000  reset_vec
+0x00000010  irq_vec
+0x00000160  irq_regs
+0x000003e0  irq_stack
+0x000003e0  start
+0x000004a2  hard_mul
+0x000004a8  hard_mulh
+0x000004ae  hard_mulhsu
+0x000004b4  hard_mulhu
+0x000004c8  irq
+0x00000780  print_chr
+0x00000788  print_str
+0x0000079a  print_dec
+0x000007e6  print_hex
+0x0000080e  stats_print_dec
+0x0000089c  stats
+0x0000091e  add1
+0x00000984  __divsi3
+0x0000098c  __udivsi3
+0x000009d4  __umodsi3
+--Type <RET> for more, q to quit, c to continue without paging--q
+```
+
+Let us try disassembling the functions:
+
+```r
+(gdb) disas print_chr
+Dump of assembler code for function print_chr:
+   0x00000780 <+0>:	lui	a5,0x10000
+   0x00000784 <+4>:	sw	a0,0(a5)
+   0x00000786 <+6>:	ret
+End of assembler dump.
+
+(gdb) disas print_str
+Dump of assembler code for function print_str:
+   0x00000788 <+0>:	lui	a4,0x10000
+   0x0000078c <+4>:	lbu	a5,0(a0)
+   0x00000790 <+8>:	bnez	a5,0x794 <print_str+12>
+   0x00000792 <+10>:	ret
+   0x00000794 <+12>:	addi	a0,a0,1
+   0x00000796 <+14>:	sw	a5,0(a4)
+   0x00000798 <+16>:	j	0x78c <print_str+4>
+End of assembler dump.
+```
+
+We see that the instruction loads the location `0x10000000` into a register by using the `lui` instruction. The `sw` instruction reads the lower 4 bytes of your source reg and stores them into the memory location in `a5`. 
+
+
+From the RISC-V ISA [documentation](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) 
+> LUI (load upper immediate) is used to build 32-bit constants and uses the U-type format. LUI places the U-immediate value in the top 20 bits of the destination register rd, filling in the lowest 12 bits with zeros.
+>
