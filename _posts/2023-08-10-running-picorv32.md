@@ -199,5 +199,71 @@ We see that the instruction loads the location `0x10000000` into a register by u
 From the RISC-V ISA [documentation:](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf) 
 > LUI (load upper immediate) is used to build 32-bit constants and uses the U-type format. LUI places the U-immediate value in the top 20 bits of the destination register rd, filling in the lowest 12 bits with zeros.
 
+How does it get displayed on the console?
 
+Looking at `testbench.v` and searching for special memory locations, we find:
 
+```verilog 
+	task handle_axi_bvalid; begin
+		if (verbose)
+			$display("WR: ADDR=%08x DATA=%08x STRB=%04b", latched_waddr, latched_wdata, latched_wstrb);
+		if (latched_waddr < 64*1024) begin
+			if (latched_wstrb[0]) memory[latched_waddr >> 2][ 7: 0] <= latched_wdata[ 7: 0];
+			if (latched_wstrb[1]) memory[latched_waddr >> 2][15: 8] <= latched_wdata[15: 8];
+			if (latched_wstrb[2]) memory[latched_waddr >> 2][23:16] <= latched_wdata[23:16];
+			if (latched_wstrb[3]) memory[latched_waddr >> 2][31:24] <= latched_wdata[31:24];
+		end else
+		if (latched_waddr == 32'h1000_0000) begin
+			if (verbose) begin
+				if (32 <= latched_wdata && latched_wdata < 128)
+					$display("OUT: '%c'", latched_wdata[7:0]);
+				else
+					$display("OUT: %3d", latched_wdata);
+			end else begin
+				$write("%c", latched_wdata[7:0]);
+```
+
+The testbench checks if the current memory location being latched is the special one that we previously defined. If so, it writes lower byte onto the console. This way, after execution, we get the text on stdout.
+
+# Writing your own programs
+
+Now that we know how we can interact with the core, we can now write programs for it. Here's a simple program without any custom peripherals that uses the available functions to compute something and print to the screen.
+
+```c
+#include "firmware.h"
+#include <stdint.h>
+uint32_t add1(void) {
+    uint32_t a =3;
+    uint32_t b =4;
+    uint32_t c=0;
+    c = a +b;
+    print_dec(c);  print_str("\n");
+    print_dec(a);  print_str("\n");
+    print_dec(b);  print_str("\n");
+    print_dec((unsigned int)&a);  print_str("\n");
+    print_dec((unsigned int )&b); print_str("\n");
+    print_dec((unsigned int )&c); print_str("\n");
+    return c;
+}
+
+void main(){
+print_dec(add1());
+return;
+}
+
+```
+
+```
+7
+3
+4
+65508
+65512
+65516
+
+```
+
+This simple program adds two numbers and displays the result on the screen, and shows the memory locations for the variables. It is seen that the memory locations decrement, as the stack grows in size.
+
+---
+This article was written as a reference to myself, since I could not find enough resources online that could explain this to me quickly. Hope you find this useful. Feel free to send your questions/suggestions/error corrections to kaniyeri at pm.me.
