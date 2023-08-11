@@ -68,17 +68,19 @@
 
     --border-color: rgba(255, 255, 255, 0.15);
 
-    --code-bg: var(--gray-400);
+    --code-bg: var(--gray-900);
   }
 }
 
 // Dark Poole theme
 [data-theme="dark-poole"] {
-  --body-color: var(--dark-poole-002);
-  --body-bg: var(--dark-poole-001);
-  --heading-color: var(--dark-poole-002);
-  --link-color: var(--dark-poole-link-color);
-  --link-hover-color: var(--dark-poole-link-hover);
+  --body-color: var(--gray-300);
+  --body-bg: var(--gray-800);
+
+  --heading-color: #fff;
+
+  --link-color: var(--blue-300);
+  --link-hover-color: var(--blue-400);
   --border-color: rgba(255, 255, 255, 0.15);
-  --code-bg: var(--gray-000);
+  --code-bg: var(--gray-900);
 }
