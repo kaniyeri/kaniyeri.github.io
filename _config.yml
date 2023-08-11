@@ -3,7 +3,7 @@ title: Nikhil Kaniyeri
 url: https://kaniyeri.github.io/
 paginate: 1
 # paginate_path: "/page:num/"
-baseurl: "https://kaniyeri.github.io//about"
+baseurl: ""
 permalink: pretty
 
 # Gems
