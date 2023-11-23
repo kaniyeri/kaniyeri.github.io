@@ -3,7 +3,8 @@ layout: page
 title: About
 ---
 
-![](./assets/nikhil_picture.jpeg)
+
+<img src="./assets/nikhil_picture.jpeg" alt="An image of me standing in front of greenery. Background is blurry. I'm wearing a white hoodie.">
 
 Hi, I am Nikhil Kaniyeri, a senior in the Electrical Engineering Department at IIT Bombay. My research interests include Computer Architecture, Hardware Security and Acceleration. <br><br>
 
