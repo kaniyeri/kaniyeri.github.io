@@ -1,0 +1,35 @@
+# Site settings
+title: Nikhil Kaniyeri
+email: education.kaniyeri@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Personal website and blog of Nikhil Kaniyeri
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://kaniyeri.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Navigation
+nav:
+  - title: About
+    url: /about/
+  - title: Blog
+    url: /blog/
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

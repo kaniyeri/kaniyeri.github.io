@@ -1,0 +1,32 @@
+---
+layout: default
+title: Home
+---
+
+<div class="page">
+  <div class="hero">
+    <h1 class="hero-title">Welcome to my website</h1>
+    <p class="hero-description">I'm Nikhil Kaniyeri, and this is my personal space on the web.</p>
+  </div>
+
+  <div class="posts">
+    <h2>Recent Posts</h2>
+    {% for post in site.posts limit:5 %}
+      <div class="post">
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+        </h3>
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
+        <p>{{ post.excerpt | strip_html | truncatewords:30 }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="about-preview">
+    <h2>About Me</h2>
+    <p>Welcome to my personal website! Here you'll find my thoughts, projects, and more.</p>
+    <p><a href="/about/">Learn more about me →</a></p>
+  </div>
+</div>
