@@ -2,31 +2,23 @@
 layout: default
 title: Home
 ---
-
-<div class="page">
-  <div class="hero">
-    <h1 class="hero-title">Welcome to my website</h1>
-    <p class="hero-description">I'm Nikhil Kaniyeri, and this is my personal space on the web.</p>
-  </div>
-
-  <div class="posts">
-    <h2>Recent Posts</h2>
-    {% for post in site.posts limit:5 %}
-      <div class="post">
-        <h3 class="post-title">
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
-        </h3>
-        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date_to_string }}</time>
-        <p>{{ post.excerpt | strip_html | truncatewords:30 }}</p>
-      </div>
-    {% endfor %}
-  </div>
-
-  <div class="about-preview">
-    <h2>About Me</h2>
-    <p>Welcome to my personal website! Here you'll find my thoughts, projects, and more.</p>
-    <p><a href="/about/">Learn more about me →</a></p>
-  </div>
+<div style="text-align: center">
+<img src="./assets/nikhil_picture.jpeg" width=100% alt="Photo taken by Advait of me standing in front of greenery. Background is blurry. I'm wearing a white hoodie.">
 </div>
+
+Hi, I am <span style="color:aqua;"> Nikhil Kaniyeri</span>, GPU Architect at NVIDIA. <s> a senior in the Electrical Engineering Department at IIT Bombay </s>. My research interests include Computer Architecture, Computer Graphics, Hardware Security and Acceleration.
+<hr>
+
+
+<span style="color: chartreuse;">What am I reading right now?</span>: <span style="color:yellow"> <a href="https://books.google.co.in/books/about/Fuzzing_Against_the_Machine.html">Fuzzing Against the Machine</a></span> - Fuzzing is the technique of automatically finding vulnerabilities in a program by trying various inputs. This book explains fuzzing with a focus on architecture for IoT, practically. <hr>
+<span style="color: chartreuse;">What am I tinkering with right now?</span>: Intel's heterogeneous cores have different <a href="https://github.com/kaniyeri/msr-reference/">MSRs</a> per type of core (<b>p</b>erformance and <b>e</b>fficiency). Managed to make it run specifically on each type of core with a little stressing and scheduling tricks. Currently begging skeptical friends to run the kernel level scanner for reference data. Post soon.
+<hr>
+
+
+Read my <a href="archive">blog</a>, or contact me by emailing <span style="color:yellow">kaniyeri at pm dot me</span>.
+
+<br><br><br>
+
+
+<hr><hr>
+<i>Maintaining your own blog is easy<span style="color: red;">^H^H^H^H</span> difficult.</i>

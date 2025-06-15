@@ -1,35 +1,42 @@
-# Site settings
+# Setup
 title: Nikhil Kaniyeri
-email: education.kaniyeri@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Personal website and blog of Nikhil Kaniyeri
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://kaniyeri.github.io" # the base hostname & protocol for your site
+url: https://kaniyeri.github.io/
+paginate: 1
+baseurl: ""
+permalink: pretty
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
+# Gems
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
 
-# Navigation
-nav:
-  - title: About
-    url: /about/
-  - title: Blog
-    url: /blog/
-
-# Pagination
-paginate: 5
-paginate_path: "/page:num/"
-
-# Exclude from processing
+# Optimize Jekyll
 exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - LICENSE.md
+  - README.md
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+# Specify the author for blog posts
+author:
+  name: Nikhil Kaniyeri
+  url: kaniyeri.github.io/about
+  email: kaniyeri@pm.me
+
+# Custom vars
+version: 3.0.0
+
+# Navbar page list
+nav:
+  - title: Blog
+    url: /archive
+  - title: About
+    url: /about

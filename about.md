@@ -1,23 +1,22 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
-# About Me
 
-Hi! I'm Nikhil Kaniyeri, welcome to my personal website.
+<img src="./assets/nikhil_picture.jpeg" alt="An image of me standing in front of greenery. Background is blurry. I'm wearing a white hoodie.">
 
-This is where I share my thoughts, projects, and experiences. Feel free to explore and get in touch if you'd like to connect.
+Hi, I am Nikhil Kaniyeri, GPU Architect at NVIDIA. <s> a senior in the Electrical Engineering Department at IIT Bombay </s>. My research interests include Computer Architecture, Computer Graphics, Hardware Security and Acceleration. <br><br>
 
-## What I do
 
-- Software development
-- Web development
-- Technology enthusiast
+<br><br>
+Read my <a href="archive">blog</a>, or contact me by emailing kaniyeri at pm dot me.
 
-## Get in touch
 
-You can reach me through various channels - check out my contact information or connect with me on social media.
 
-Thanks for visiting!
+
+<br><br><br><br><br>
+
+
+
+<i>Maintaining your own blog is easy<span style="color: red;">^H^H^H^H</span> difficult.</i>
