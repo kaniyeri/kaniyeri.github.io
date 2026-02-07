@@ -62,9 +62,9 @@ I went back up to the RNG function and started to check where it was xref'd, one
 The decompiled output is ~500 lines. Most of it is irrelevant. The RNG xref puts the cursor right at the interesting part:
 
 ![](/assets/20260207_205004_image.png)
-*A retry loop that assigns random colors to gems*
+*Suspicious large loop*
 
-A gem object's color is at offset 544. The color is picked from an array using a random index. Reading outward from the RNG call, there's a subfunction with direction offsets (-1, 0, 1), bounds checks against an 8x8 grid, and match-length comparisons:
+ Reading outward from the RNG call, there's a subfunction with direction offsets (-1, 0, 1), bounds checks against an 8x8 grid, and match-length comparisons:
 
 ![](/assets/20260207_211652_image.png)
 *v43 filled with -1s, 0s and 1s.*
