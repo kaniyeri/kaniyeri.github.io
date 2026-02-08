@@ -1,6 +1,8 @@
 ---
 layout: post
 title: How does Bejeweled 3 determine the next set of gems to drop?
+description: "Reverse engineering Bejeweled 3 to find out how Zen mode guarantees you can always keep playing — turns out it's a 112-operation brute force check."
+image: /assets/20260207_235739_image.png
 ---
 
 ![](/assets/20260207_235739_image.png)
